@@ -14,4 +14,4 @@ Os códigos do server estão no pacote server, já os códigos do chat e da gui 
 ## Status Geral
 
 * Server and client sockets: "Finalizado".
-* Gui: Em progesso.
+* GUI: Em progesso.
