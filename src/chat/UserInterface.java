@@ -1,8 +1,10 @@
 package chat;
 
 public interface UserInterface {
-    void showMessage();
-    void showNewConnection();
+    void showClientMessage(String nickname, String message);
+
+    void showMessage(String message);
+    void showNewConnetion();
     void showErrorMessage(String message);
 
 }
