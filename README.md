@@ -9,9 +9,9 @@ O grupo optou pelo desenvolvimento do chat usando java e para a interface gráfi
 
 O backend está primordialmente organizado em chat e server, onde ambos ja foram implementado com sucesso;
 
-Os códigos do servidor(Server) estão no package Server e na build do projeto é gerado um "Server.jar". Há também o package "chat", onde está localizado o código principal e existe client. Dentro do package chat há também a raiz do projeto, no caso:  EastwoodChat.jav;
+Os códigos do server estão no pacote server, já os códigos do chat e da gui estão no pacote chat. Na build do projeto são gerados os jars Server.jar e EastwoodChat.jar, no diretório raiz.
 
 ## Status Geral
 
-Backend: "Finalizado";
-Frontend: Em progesso;
+Server and client sockets: "Finalizado";
+Gui: Em progesso;
