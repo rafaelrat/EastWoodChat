@@ -13,8 +13,10 @@ public class EastwoodChatClient {
         UserInterface userInterface = new CommandLineTest();
 
         try{
-            ClientSocket clientSocket = new ClientSocket("rafael", Server.SERVER_HOST, Server.SERVER_PORT, userInterface);
+            ClientSocket clientSocket = new ClientSocket("rafael", "127.0.0.1", Server.SERVER_PORT, userInterface);
             userInterface.showMessage("You are connected!");
+
+            clientSocket.execute();
 
             Scanner s = new Scanner(System.in);
             while(true){

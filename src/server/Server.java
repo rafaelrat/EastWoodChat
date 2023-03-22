@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Server {
-    public static final String SERVER_HOST = "10.0.0.48";
     public static final int SERVER_PORT = 21;
 
     public List<PrintStream> clients;
@@ -49,6 +48,7 @@ public class Server {
     }
 
     public void sendMessage(String msg){
+        System.out.println("new message sent - " + msg);
         for(PrintStream client : this.clients){
             client.println(msg);
         }
