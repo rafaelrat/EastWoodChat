@@ -3,15 +3,17 @@ package chat.client;
 import chat.UserInterface;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Scanner;
 
 public class ServerListener implements Runnable{
 
-    ClientSocket clientSocket;
+    private ClientSocket clientSocket;
     private InputStream listener;
     private UserInterface userInterface;
 
     public ServerListener(ClientSocket clientSocket, InputStream listener, UserInterface userInterface){
+        this.clientSocket = clientSocket;
         this.listener = listener;
         this.userInterface = userInterface;
     }
