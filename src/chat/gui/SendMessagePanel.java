@@ -28,8 +28,9 @@ public class SendMessagePanel extends JPanel {
         messageField = new JTextField(19);
 
         messageField.setFont(SEND_MESSAGE_FONT);
-        messageField.setAutoscrolls(true);
         this.add(messageField);
+
+
 
         sendMessageButton = new JButton("Send");
         this.add(sendMessageButton);
@@ -58,5 +59,13 @@ public class SendMessagePanel extends JPanel {
     public SendMessagePanel() {
         configBorders();
         configComponents();
+    }
+
+    public JButton getSendMessageButton() {
+        return sendMessageButton;
+    }
+
+    public JTextField getMessageField() {
+        return messageField;
     }
 }

@@ -1,7 +1,5 @@
 package server;
 
-import chat.client.ServerListener;
-
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.ServerSocket;
@@ -12,10 +10,10 @@ import java.util.List;
 public class Server {
     public static final int SERVER_PORT = 21;
 
-    public List<PrintStream> clients;
+    public List<PrintStream> printStreams;
 
     public Server(){
-        this.clients = new ArrayList<>();
+        this.printStreams = new ArrayList<>();
     }
 
     public static void main(String[] args) throws IOException {
@@ -38,7 +36,7 @@ public class Server {
 
             //add client output to list
             PrintStream ps = new PrintStream(client.getOutputStream());
-            this.clients.add(ps);
+            this.printStreams.add(ps);
 
             //treat the client
             TreatClient tc = new TreatClient(client, client.getInputStream(), this);
@@ -49,7 +47,7 @@ public class Server {
 
     public void sendMessage(String msg){
         System.out.println("new message sent - " + msg);
-        for(PrintStream client : this.clients){
+        for(PrintStream client : this.printStreams){
             client.println(msg);
         }
     }

@@ -52,11 +52,14 @@ public class ChatWindow extends JFrame implements UserInterface {
 
         this.setVisible(true);
        // this.pack();
+
+        //Seta o botão send como padrão
+        this.getRootPane().setDefaultButton(this.sendMessagePanel.getSendMessageButton());
     }
 
     @Override
     public void addMessage(String nickname, String message) {
-        this.chatPanel.addMessage(nickname, message, Color.pink, Color.black);
+        this.chatPanel.addMessage(nickname, message);
     }
 
     @Override
@@ -86,4 +89,6 @@ public class ChatWindow extends JFrame implements UserInterface {
     public SendMessagePanel getSendMessagePanel() {
         return sendMessagePanel;
     }
+
+
 }

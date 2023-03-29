@@ -71,6 +71,7 @@ public class ConnectionPanel extends JPanel {
 
     private void configButtons() {
         connectButton = new ConnectButton("Connect");
+        connectButton.setBackground(Color.green);
 
         connectButton.addActionListener(e -> {
             //Close the socket, clear the chat and change button text
@@ -83,11 +84,17 @@ public class ConnectionPanel extends JPanel {
                 EastwoodChat.chatWindow.addSystemMessage("Disconnected.");
                 connectButton.setText("Connect");
                 connectButton.setConnected(false);
+                connectButton.setBackground(Color.green);
 
                 //Habilita a edição dos campos
                 nicknameTextField.setEditable(true);
                 hostTextField.setEditable(true);
                 portTextField.setEditable(true);
+
+                //Seta o foco no host
+                hostTextField.grabFocus();
+                connectButton.grabFocus();
+
             } else {
 
                 var nickname = nicknameTextField.getText();
@@ -113,8 +120,12 @@ public class ConnectionPanel extends JPanel {
                     EastwoodChat.chatWindow.addSystemMessage("Connected successfully!");
                     EastwoodChat.chatWindow.addSystemMessage("Host: " + EastwoodChat.clientSocket.getHost() + ":" + EastwoodChat.clientSocket.getPort());
 
-                    connectButton.setText("Connected");
+                    connectButton.setText("Disconnect");
                     connectButton.setConnected(true);
+                    connectButton.setBackground(Color.red);
+
+                    //Seta o foco no text field da mensagem
+                    EastwoodChat.chatWindow.getSendMessagePanel().getMessageField().grabFocus();
                 } else {
 
                     EastwoodChat.chatWindow.addErrorMessage("Error to connect.");
