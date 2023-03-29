@@ -23,7 +23,7 @@ public class ServerListener implements Runnable{
         Scanner s = new Scanner(this.listener);
         while (true){
             if(s.hasNextLine()){
-                userInterface.showClientMessage(clientSocket.getNickname(), s.nextLine());
+                userInterface.addMessage(clientSocket.getNickname(), s.nextLine());
             }
         }
     }

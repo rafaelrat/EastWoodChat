@@ -2,10 +2,7 @@ package chat;
 
 import chat.gui.ChatWindow;
 
-import java.io.IOException;
-import java.util.Scanner;
-
-public class EastwoodChatClient {
+public class EastwoodChat {
     public static void main(String[] args){
         new ChatWindow();
 

@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class ConnectionPanel extends JPanel{
 
-    private static Font FIELDS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
-    private  static Font LABELS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
+    private static final Font FIELDS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
+    private  static final Font LABELS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
 
     //Text Fields
     private JTextField nicknameTextField;

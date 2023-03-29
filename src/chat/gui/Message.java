@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class Message extends JPanel {
 
-    private static Font NICKNAME_FONT = new Font(Font.SERIF, Font.BOLD, 15);
-    private static Font MESSAGE_FONT = new Font(Font.SERIF, Font.PLAIN, 12);
+    private static final Font NICKNAME_FONT = new Font(Font.SERIF, Font.BOLD, 15);
+    private static final Font MESSAGE_FONT = new Font(Font.SERIF, Font.PLAIN, 12);
 
     private JLabel nicknameLabel;
     private JLabel messageLabel;

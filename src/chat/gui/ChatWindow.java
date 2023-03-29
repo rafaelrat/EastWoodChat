@@ -15,16 +15,24 @@ public class ChatWindow extends JFrame{
     private ConnectionPanel connectionPanel;
     private ChatPanel chatPanel;
 
+    private SendMessagePanel sendMessagePanel;
+
     private void configPanelsAndLayout(){
+        //Connection Panel
         connectionPanel = new ConnectionPanel();
         this.add(connectionPanel,  BorderLayout.PAGE_START);
 
+        //Chat Panel
         chatPanel = new ChatPanel();
         this.add(chatPanel, BorderLayout.CENTER);
 
+        //Add scroll for chat
         JScrollPane sp = new JScrollPane(chatPanel);
         this.getContentPane().add(sp);
 
+        //Send Message Panel
+        sendMessagePanel = new SendMessagePanel();
+        this.add(sendMessagePanel, BorderLayout.PAGE_END);
     }
 
 
