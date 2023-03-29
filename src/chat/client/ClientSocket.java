@@ -6,7 +6,6 @@ import chat.UserInterface;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class ClientSocket implements ConnectionInterface {
 
@@ -20,8 +19,8 @@ public class ClientSocket implements ConnectionInterface {
 
     }
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
     private String nickname;
     private UserInterface userInterface;
 

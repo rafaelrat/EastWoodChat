@@ -1,7 +1,5 @@
 package chat.gui;
 
-import chat.ConnectionInterface;
-
 import javax.swing.*;
 
 public class ConnectButton extends JButton {

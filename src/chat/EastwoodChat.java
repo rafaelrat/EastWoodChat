@@ -2,11 +2,8 @@ package chat;
 
 import chat.client.*;
 import chat.gui.*;
-import jdk.jshell.spi.ExecutionControl;
-import server.*;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class EastwoodChat {
 
