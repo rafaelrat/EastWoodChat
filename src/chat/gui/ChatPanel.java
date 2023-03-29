@@ -75,6 +75,42 @@ public class ChatPanel extends JTextPane{
         this.setEditable(false);
         this.setFont(MESSAGE_FONT);
 
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
+        this.addErrorMessage("sdfasçlkfasdfadsf");
 
     }
 }
