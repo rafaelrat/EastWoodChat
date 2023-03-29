@@ -12,6 +12,7 @@ public class ChatPanel extends JTextPane{
 
     private static final Font  MESSAGE_FONT = new Font(Font.SERIF, Font.BOLD, 15);
     private static final Color SYSTEM_MESSAGE_COLOR = Color.orange;
+    private static final Color ERROR_MESSAGE_COLOR = Color.red;
 
     private void configBorders(){
         this.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -27,6 +28,21 @@ public class ChatPanel extends JTextPane{
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+    }
+
+    private void addErrorMessage(String message){
+        StyledDocument doc = this.getStyledDocument();
+
+        Style style = this.addStyle("Color Style", null);
+        StyleConstants.setForeground(style, ERROR_MESSAGE_COLOR);
+        try {
+            doc.insertString(doc.getLength(), message + "\n", style);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
+    private void clearChat(){
+        this.setText("");
     }
 
 
@@ -59,10 +75,6 @@ public class ChatPanel extends JTextPane{
         this.setEditable(false);
         this.setFont(MESSAGE_FONT);
 
-        addMessage("rafael", "vai se fuder", Color.black, Color.green);
-        addMessage("nicole", "alala o po mario",Color.black, Color.green);
-        addMessage("alvim", "c que da se fala",Color.black, Color.green);
-        addMessage("jao", "era uma vez, um dia em que todo dia era bom",Color.black, Color.green);
 
     }
 }
