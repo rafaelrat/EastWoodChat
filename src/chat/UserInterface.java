@@ -6,4 +6,6 @@ public interface UserInterface {
     void addSystemMessage(String message);
     void addErrorMessage(String message);
 
+    void clearChat();
+
 }

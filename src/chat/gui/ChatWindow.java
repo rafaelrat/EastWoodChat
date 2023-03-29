@@ -13,10 +13,8 @@ public class ChatWindow extends JFrame implements UserInterface {
     public final static int SCREEN_HEIGHT = 800;
     public final static String title = "Eastwood Chat";
 
-
     private ConnectionPanel connectionPanel;
     private ChatPanel chatPanel;
-
     private SendMessagePanel sendMessagePanel;
 
     private void configPanelsAndLayout(){
@@ -33,7 +31,7 @@ public class ChatWindow extends JFrame implements UserInterface {
         this.getContentPane().add(sp);
 
         //Send Message Panel
-        sendMessagePanel = new SendMessagePanel();
+        sendMessagePanel= new SendMessagePanel();
         this.add(sendMessagePanel, BorderLayout.PAGE_END);
     }
 
@@ -50,8 +48,6 @@ public class ChatWindow extends JFrame implements UserInterface {
 
         //Create and config panels
         configPanelsAndLayout();
-
-
 
 
         this.setVisible(true);
@@ -71,5 +67,23 @@ public class ChatWindow extends JFrame implements UserInterface {
     @Override
     public void addErrorMessage(String message) {
         this.chatPanel.addErrorMessage(message);
+    }
+
+    @Override
+    public void clearChat() {
+        this.chatPanel.clearChat();
+    }
+
+
+    public ConnectionPanel getConnectionPanel() {
+        return connectionPanel;
+    }
+
+    public ChatPanel getChatPanel() {
+        return chatPanel;
+    }
+
+    public SendMessagePanel getSendMessagePanel() {
+        return sendMessagePanel;
     }
 }

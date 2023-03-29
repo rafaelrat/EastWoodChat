@@ -1,7 +1,11 @@
 package chat.gui;
 
+import chat.EastwoodChat;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SendMessagePanel extends JPanel {
 
@@ -32,6 +36,16 @@ public class SendMessagePanel extends JPanel {
 
         sendMessageButton = new JButton("Send");
         this.add(sendMessageButton);
+
+        sendMessageButton.addActionListener(e -> {
+            String message =  messageArea.getText();
+
+
+
+            messageArea.setText("");
+
+        });
+
     }
 
 

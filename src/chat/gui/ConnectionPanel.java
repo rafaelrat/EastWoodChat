@@ -1,34 +1,36 @@
 package chat.gui;
 
+import chat.EastwoodChat;
+import chat.client.ClientSocket;
+
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import java.awt.*;
 
-public class ConnectionPanel extends JPanel{
+public class ConnectionPanel extends JPanel {
 
     private static final Font FIELDS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
-    private  static final Font LABELS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
+    private static final Font LABELS_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
 
     //Text Fields
     private JTextField nicknameTextField;
-    private JTextField ipTextField;
+    private JTextField hostTextField;
     private JTextField portTextField;
 
 
     //Labels
     private JLabel nicknameLabel;
-    private JLabel ipLabel;
+    private JLabel hostLabel;
     private JLabel portLabel;
 
     //Button
-    private JButton connectButton;
+    private ConnectButton connectButton;
 
 
-    private void configBorders(){
+    private void configBorders() {
         this.setBorder(BorderFactory.createLoweredBevelBorder());
     }
 
-    private void configInputFieldsandLabels(){
+    private void configInputFieldsandLabels() {
 
         //Nickname label
         nicknameLabel = new JLabel("Nickname");
@@ -43,16 +45,16 @@ public class ConnectionPanel extends JPanel{
         this.add(nicknameTextField);
 
         //IP label
-        ipLabel = new JLabel("Host");
-        ipLabel.setFont(LABELS_FONT);
-        this.add(ipLabel);
+        hostLabel = new JLabel("Host");
+        hostLabel.setFont(LABELS_FONT);
+        this.add(hostLabel);
 
         //IP text field
-        ipTextField = new JTextField(10);
+        hostTextField = new JTextField(10);
         //ipTextField.setBackground(Color.green);
-        ipTextField.setFont(FIELDS_FONT);
-        ipTextField.setHorizontalAlignment(JTextField.CENTER);
-        this.add(ipTextField);
+        hostTextField.setFont(FIELDS_FONT);
+        hostTextField.setHorizontalAlignment(JTextField.CENTER);
+        this.add(hostTextField);
 
         //Port label
         portLabel = new JLabel("Port");
@@ -67,11 +69,66 @@ public class ConnectionPanel extends JPanel{
         this.add(portTextField);
     }
 
-    private void configButtons(){
-        connectButton = new JButton("Connect");
+    private void configButtons() {
+        connectButton = new ConnectButton("Connect");
+
+        connectButton.addActionListener(e -> {
+            //Close the socket, clear the chat and change button text
+            if (connectButton.isConnected()) {
+                ClientSocket.closeSocket(EastwoodChat.clientSocket);
+
+                EastwoodChat.chatWindow.clearChat();
+                EastwoodChat.clientSocket = null;
+
+                EastwoodChat.chatWindow.addSystemMessage("Disconnected.");
+                connectButton.setText("Connect");
+                connectButton.setConnected(false);
+
+                //Habilita a edição dos campos
+                nicknameTextField.setEditable(true);
+                hostTextField.setEditable(true);
+                portTextField.setEditable(true);
+            } else {
+
+                var nickname = nicknameTextField.getText();
+                var host = hostTextField.getText();
+                var port = portTextField.getText();
+
+                boolean connected;
+                try {
+                    connected = EastwoodChat.tryToCreateSocket(nickname, host, Integer.parseInt(port), EastwoodChat.chatWindow);
+                } catch (NumberFormatException exception) {
+                    connected = false;
+                }
+
+
+                if (connected) {
+
+                    EastwoodChat.chatWindow.clearChat();
+
+                    nicknameTextField.setEditable(false);
+                    hostTextField.setEditable(false);
+                    portTextField.setEditable(false);
+
+                    EastwoodChat.chatWindow.addSystemMessage("Connected successfully!");
+                    EastwoodChat.chatWindow.addSystemMessage("Host: " + EastwoodChat.clientSocket.getHost() + ":" + EastwoodChat.clientSocket.getPort());
+
+                    connectButton.setText("Connected");
+                    connectButton.setConnected(true);
+                } else {
+
+                    EastwoodChat.chatWindow.addErrorMessage("Error to connect.");
+                    EastwoodChat.chatWindow.addSystemMessage("Check the host and port!");
+                    connectButton.setConnected(false);
+                }
+            }
+
+        });
+
         this.add(connectButton);
     }
-    public ConnectionPanel(){
+
+    public ConnectionPanel() {
         configBorders();
         configInputFieldsandLabels();
         configButtons();

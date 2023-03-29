@@ -1,5 +1,6 @@
 package chat.client;
 
+import chat.ConnectionInterface;
 import chat.UserInterface;
 
 import java.io.IOException;
@@ -7,7 +8,17 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class ClientSocket {
+public class ClientSocket implements ConnectionInterface {
+
+    public static void closeSocket(ClientSocket socket){
+        try{
+            socket.output.close();
+            socket.client.close();
+        }catch (IOException e) {
+            System.out.println("haha exception\n");
+        }
+
+    }
 
     private String host;
     private int port;
@@ -39,11 +50,16 @@ public class ClientSocket {
     }
 
 
+    @Override
     public void sendMessage(String message){
         this.output.println(this.nickname + "//" + message);
     }
 
+    public String getHost() {
+        return host;
+    }
 
-
-
+    public int getPort() {
+        return port;
+    }
 }
