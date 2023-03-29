@@ -96,7 +96,6 @@ public class ConnectionPanel extends JPanel {
                 connectButton.grabFocus();
 
             } else {
-
                 var nickname = nicknameTextField.getText();
                 var host = hostTextField.getText();
                 var port = portTextField.getText();
