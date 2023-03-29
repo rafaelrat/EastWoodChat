@@ -34,13 +34,13 @@ public class ClientSocket {
     }
     public void execute() throws IOException {
         //treat the sever messages
-        ServerListener serverListener = new ServerListener(this, this.client.getInputStream(), userInterface);
+        ServerListener serverListener = new ServerListener(this.client.getInputStream(), userInterface);
         new Thread(serverListener).start();
     }
 
 
     public void sendMessage(String message){
-        this.output.println(message);
+        this.output.println(this.nickname + "//" + message);
     }
 
 

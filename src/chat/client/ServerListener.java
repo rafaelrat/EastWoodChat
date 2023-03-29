@@ -8,12 +8,10 @@ import java.util.Scanner;
 
 public class ServerListener implements Runnable{
 
-    private ClientSocket clientSocket;
     private InputStream listener;
     private UserInterface userInterface;
 
-    public ServerListener(ClientSocket clientSocket, InputStream listener, UserInterface userInterface){
-        this.clientSocket = clientSocket;
+    public ServerListener(InputStream listener, UserInterface userInterface){
         this.listener = listener;
         this.userInterface = userInterface;
     }
@@ -23,7 +21,9 @@ public class ServerListener implements Runnable{
         Scanner s = new Scanner(this.listener);
         while (true){
             if(s.hasNextLine()){
-                userInterface.addMessage(clientSocket.getNickname(), s.nextLine());
+                //Separa o nickname da mensagem
+                String[] line = s.nextLine().split("//");
+                userInterface.addMessage(line[0], line[1]);
             }
         }
     }

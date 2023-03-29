@@ -1,9 +1,11 @@
 package chat.gui;
 
+import chat.UserInterface;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class ChatWindow extends JFrame{
+public class ChatWindow extends JFrame implements UserInterface {
 
 
 
@@ -54,5 +56,20 @@ public class ChatWindow extends JFrame{
 
         this.setVisible(true);
        // this.pack();
+    }
+
+    @Override
+    public void addMessage(String nickname, String message) {
+        this.chatPanel.addMessage(nickname, message, Color.pink, Color.black);
+    }
+
+    @Override
+    public void addSystemMessage(String message) {
+        this.chatPanel.addSystemMessage(message);
+    }
+
+    @Override
+    public void addErrorMessage(String message) {
+        this.chatPanel.addErrorMessage(message);
     }
 }

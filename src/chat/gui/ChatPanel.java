@@ -18,7 +18,7 @@ public class ChatPanel extends JTextPane{
         this.setBorder(BorderFactory.createLoweredBevelBorder());
     }
 
-    private void addSystemMessage(String message){
+    public void addSystemMessage(String message){
         StyledDocument doc = this.getStyledDocument();
 
         Style style = this.addStyle("Color Style", null);
@@ -30,7 +30,7 @@ public class ChatPanel extends JTextPane{
         }
     }
 
-    private void addErrorMessage(String message){
+    public void addErrorMessage(String message){
         StyledDocument doc = this.getStyledDocument();
 
         Style style = this.addStyle("Color Style", null);
@@ -41,12 +41,12 @@ public class ChatPanel extends JTextPane{
             e.printStackTrace();
         }
     }
-    private void clearChat(){
+    public void clearChat(){
         this.setText("");
     }
 
 
-    private void addMessage(String nickname, String message, Color nicknameColor, Color messageColor){
+    public void addMessage(String nickname, String message, Color nicknameColor, Color messageColor){
             StyledDocument doc = this.getStyledDocument();
 
             //Nickname
@@ -75,42 +75,6 @@ public class ChatPanel extends JTextPane{
         this.setEditable(false);
         this.setFont(MESSAGE_FONT);
 
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
-        this.addErrorMessage("sdfasçlkfasdfadsf");
 
     }
 }
