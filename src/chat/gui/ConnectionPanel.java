@@ -134,4 +134,7 @@ public class ConnectionPanel extends JPanel {
         configButtons();
     }
 
+    public ConnectButton getConnectButton() {
+        return connectButton;
+    }
 }

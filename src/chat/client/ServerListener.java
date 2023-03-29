@@ -21,9 +21,14 @@ public class ServerListener implements Runnable{
         Scanner s = new Scanner(this.listener);
         while (true){
             if(s.hasNextLine()){
-                //Separa o nickname da mensagem
-                String[] line = s.nextLine().split("//");
-                userInterface.addMessage(line[0], line[1]);
+                try{
+                    //Separa o nickname da mensagem
+                    String[] line = s.nextLine().split("//");
+                    userInterface.addMessage(line[0], line[1]);
+                }catch (IndexOutOfBoundsException e){
+
+                }
+
             }
         }
     }

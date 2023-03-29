@@ -4,52 +4,58 @@ import chat.EastwoodChat;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class SendMessagePanel extends JPanel {
 
-    private  static final Font SEND_MESSAGE_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
+    private static final Font SEND_MESSAGE_FONT = new Font(Font.SERIF, Font.PLAIN, 15);
 
 
     private JLabel sendMessageLabel;
-    private JTextArea messageArea;
+    private JTextField messageField;
 
     private JButton sendMessageButton;
 
 
-    private void configBorders(){
+    private void configBorders() {
         this.setBorder(BorderFactory.createLoweredBevelBorder());
     }
 
-    private void configComponents(){
+    private void configComponents() {
         sendMessageLabel = new JLabel("Message: ");
         sendMessageLabel.setFont(SEND_MESSAGE_FONT);
         this.add(sendMessageLabel);
 
-        messageArea = new JTextArea(3, 19);
+        messageField = new JTextField(19);
 
-        messageArea.setFont(SEND_MESSAGE_FONT);
-        messageArea.setAutoscrolls(true);
-        messageArea.setLineWrap(true);
-        this.add(messageArea);
+        messageField.setFont(SEND_MESSAGE_FONT);
+        messageField.setAutoscrolls(true);
+        this.add(messageField);
 
         sendMessageButton = new JButton("Send");
         this.add(sendMessageButton);
 
         sendMessageButton.addActionListener(e -> {
-            String message =  messageArea.getText();
+            String message = messageField.getText();
 
+            if (!message.isBlank()) {
+                if (EastwoodChat.chatWindow.getConnectionPanel().getConnectButton().isConnected()) {
+                    EastwoodChat.clientSocket.sendMessage(message);
+                    messageField.setText("");
 
+                } else {
+                    EastwoodChat.chatWindow.addSystemMessage("You're not connected to a server.");
+                }
+            }else{
+                EastwoodChat.chatWindow.addSystemMessage("Blank messages are not accepted.");
+            }
 
-            messageArea.setText("");
 
         });
 
     }
 
 
-    public SendMessagePanel(){
+    public SendMessagePanel() {
         configBorders();
         configComponents();
     }

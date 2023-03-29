@@ -21,25 +21,12 @@ public class EastwoodChat {
     }
 
     public static ClientSocket clientSocket;
-    public final static UserInterface chatWindow = new ChatWindow();
+    public final static ChatWindow chatWindow = new ChatWindow();
 
 
 
     public static void main(String[] args) {
 
-        while(true){
-//            if(clientSocket != null){
-//                Scanner s = new Scanner(System.in);
-//                while (true) {
-//                    if (s.hasNextLine()) {
-//                        String msg = s.nextLine();
-//                        if (msg != "\n") {
-//                            clientSocket.sendMessage(msg);
-//                        }
-//                    }
-//                }
-//            }
-        }
 
 
     }
