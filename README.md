@@ -1,17 +1,22 @@
-# RELATÓRIO TP - SOCKETS
+# EastwoodChat
+A simple chat, made in Java 11, with sockets and Swing.
 
-#### Alunos: Bernado Alvim, Kaio, Rafael, Raphael.
-Relatório do que foi desenvolvido pelos alunos do grupo no dia 22/03/2023;
+![img.png](img%2Fimg.png)
 
-## Visão Geral
+## How to use
+Just connect to server setting the nickname, host and port and be happy spamming your friends.
 
-O grupo optou pelo desenvolvimento do chat usando a linguagem Java, com o toolkit Swing para a interface gráfica. Buscou o desenvolvimento dessa rede de mensagens se organizando para estudar, definir e programar primeiramente o backend do programa, onde, quando finalizado, dariam início ao frontend desse;
 
-O backend está primordialmente organizado em chat e server, onde ambos ja foram implementado com sucesso;
 
-Os códigos do server estão no pacote server, já os códigos do chat e da gui estão no pacote chat. Na build do projeto são gerados os jars Server.jar e EastwoodChat.jar, no diretório raiz.
+## How to run
+* Download the EastwoodChat.jar and Server.jar (if you want to run your own server)
+* Install Java 11 or higher, if you haven't already.
+* Run client with `java -jar Eastwood.jar`
+* Run server with `sudo java -jar Server.jar`
 
-## Status Geral
 
-* Server and client sockets: "Finalizado".
-* GUI: Em progesso.
+## This is a school project, made by:
+* rafaelrat
+* alvimdev
+* raphhax
+* kaioffn
