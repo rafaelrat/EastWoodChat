@@ -28,6 +28,7 @@ public class Server {
         ServerSocket server = new ServerSocket(SERVER_PORT);
 
         System.out.println("Port opened: " + SERVER_PORT);
+        System.out.println("Server on - "+server.getInetAddress() + ":" + SERVER_PORT);
 
         while(true){
             //accept the client
