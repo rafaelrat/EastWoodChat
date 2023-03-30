@@ -51,10 +51,10 @@ public class ChatWindow extends JFrame implements UserInterface {
 
 
         this.setVisible(true);
-       // this.pack();
+        //this.pack();
 
-        //Seta o botão send como padrão
-        this.getRootPane().setDefaultButton(this.sendMessagePanel.getSendMessageButton());
+        //Seta o botão connect como padrão
+        this.getRootPane().setDefaultButton(connectionPanel.getConnectButton());
     }
 
     @Override

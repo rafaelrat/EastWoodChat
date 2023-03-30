@@ -95,6 +95,9 @@ public class ConnectionPanel extends JPanel {
                 hostTextField.grabFocus();
                 connectButton.grabFocus();
 
+                //Seta o botão connect como padrão
+                this.getRootPane().setDefaultButton(connectButton);
+
             } else {
                 var nickname = nicknameTextField.getText();
                 var host = hostTextField.getText();
@@ -125,11 +128,16 @@ public class ConnectionPanel extends JPanel {
 
                     //Seta o foco no text field da mensagem
                     EastwoodChat.chatWindow.getSendMessagePanel().getMessageField().grabFocus();
+
+                    //Seta o botão send como padrão
+                    this.getRootPane().setDefaultButton(EastwoodChat.chatWindow.getSendMessagePanel().getSendMessageButton());
                 } else {
 
                     EastwoodChat.chatWindow.addErrorMessage("Error to connect.");
                     EastwoodChat.chatWindow.addSystemMessage("Check the host and port!");
                     connectButton.setConnected(false);
+                    //Seta o botão connect como padrão
+                    this.getRootPane().setDefaultButton(connectButton);
                 }
             }
 
