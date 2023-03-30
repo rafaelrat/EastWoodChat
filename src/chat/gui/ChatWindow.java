@@ -1,12 +1,19 @@
 package chat.gui;
 
+import chat.EastwoodChat;
 import chat.UserInterface;
+import chat.client.ClientSocket;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ChatWindow extends JFrame implements UserInterface {
 
+
+
+    public static void connectServer(){
+
+    }
 
 
     public final static int SCREEN_WIDTH = 800;

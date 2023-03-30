@@ -76,69 +76,9 @@ public class ConnectionPanel extends JPanel {
         connectButton.addActionListener(e -> {
             //Close the socket, clear the chat and change button text
             if (connectButton.isConnected()) {
-                ClientSocket.closeSocket(EastwoodChat.clientSocket);
-
-                EastwoodChat.chatWindow.clearChat();
-                EastwoodChat.clientSocket = null;
-
-                EastwoodChat.chatWindow.addSystemMessage("Disconnected.");
-                connectButton.setText("Connect");
-                connectButton.setConnected(false);
-                connectButton.setBackground(Color.green);
-
-                //Habilita a edição dos campos
-                nicknameTextField.setEditable(true);
-                hostTextField.setEditable(true);
-                portTextField.setEditable(true);
-
-                //Seta o foco no host
-                hostTextField.grabFocus();
-                connectButton.grabFocus();
-
-                //Seta o botão connect como padrão
-                this.getRootPane().setDefaultButton(connectButton);
-
+                EastwoodChat.disconnectServer();
             } else {
-                var nickname = nicknameTextField.getText();
-                var host = hostTextField.getText();
-                var port = portTextField.getText();
-
-                boolean connected;
-                try {
-                    connected = EastwoodChat.tryToCreateSocket(nickname, host, Integer.parseInt(port), EastwoodChat.chatWindow);
-                } catch (NumberFormatException exception) {
-                    connected = false;
-                }
-
-
-                if (connected) {
-
-                    EastwoodChat.chatWindow.clearChat();
-
-                    nicknameTextField.setEditable(false);
-                    hostTextField.setEditable(false);
-                    portTextField.setEditable(false);
-
-                    EastwoodChat.chatWindow.addSystemMessage("Connected successfully!");
-                    EastwoodChat.chatWindow.addSystemMessage("Host: " + EastwoodChat.clientSocket.getHost() + ":" + EastwoodChat.clientSocket.getPort());
-
-                    connectButton.setText("Disconnect");
-                    connectButton.setConnected(true);
-                    connectButton.setBackground(Color.red);
-
-                    //Seta o foco no text field da mensagem
-                    EastwoodChat.chatWindow.getSendMessagePanel().getMessageField().grabFocus();
-
-                    //Seta o botão send como padrão
-                    this.getRootPane().setDefaultButton(EastwoodChat.chatWindow.getSendMessagePanel().getSendMessageButton());
-                } else {
-
-                    EastwoodChat.chatWindow.addErrorMessage("Error to connect.");
-                    EastwoodChat.chatWindow.addSystemMessage("Check the host and port!");
-                    connectButton.setConnected(false);
-                    //Seta o botão connect como padrão
-                    this.getRootPane().setDefaultButton(connectButton);
-                }
+                EastwoodChat.connectServer();
             }
 
         });
@@ -154,5 +94,17 @@ public class ConnectionPanel extends JPanel {
 
     public ConnectButton getConnectButton() {
         return connectButton;
+    }
+
+    public JTextField getNicknameTextField() {
+        return nicknameTextField;
+    }
+
+    public JTextField getHostTextField() {
+        return hostTextField;
+    }
+
+    public JTextField getPortTextField() {
+        return portTextField;
     }
 }
