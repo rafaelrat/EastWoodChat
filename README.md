@@ -22,8 +22,8 @@ Just connect to server setting the nickname, host and port and be happy spamming
 ## How to run
 * Download the EastwoodChat.jar and Server.jar (if you want to run your own server)
 * Install Java 11 or higher, if you haven't already.
-* Run chat with `java -jar Eastwood.jar`
-* Run server with `sudo java -jar Server.jar`
+* Run chat with `$ java -jar Eastwood.jar`
+* Run server with `$ sudo java -jar Server.jar`
 
 
 ## This is a school project made by:
