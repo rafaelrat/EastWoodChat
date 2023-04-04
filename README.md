@@ -5,7 +5,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rafaelrat/EastwoodChat?style=for-the-badge)
 
 # EastwoodChat
-ㅤA simple chat, made in Java 11, with sockets and Swing.
+ㅤA simple chat, made in Java 11, using sockets and Swing.
 
 ![img.png](img%2Fimg.png)
 
