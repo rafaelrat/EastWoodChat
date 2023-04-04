@@ -55,7 +55,7 @@ Just connect to server setting the nickname, host and port and be happy spamming
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/raphhax/">
+      <a href="https://github.com/kaioffn/">
         <img src="https://imgs.search.brave.com/S_LuyXAvKetIPWwMldZ_ccBOvMqMxGf2j5gp6PSYq_I/rs:fit:1024:1024:1/g:ce/aHR0cHM6Ly9hdmF0/YXJmaWxlcy5hbHBo/YWNvZGVycy5jb20v/MTk1LzE5NTUzNC5q/cGc" width="100px;" alt=""/><br>
         <sub>
           <b>kaioffn</b>
@@ -64,3 +64,6 @@ Just connect to server setting the nickname, host and port and be happy spamming
     </td>
   </tr>
 </table>
+
+## 
+[⬆ Voltar ao topo](#eastwoodchat)<br>
