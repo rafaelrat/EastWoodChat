@@ -4,17 +4,13 @@ import chat.EastwoodChat;
 import chat.UserInterface;
 import chat.client.ClientSocket;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.net.URL;
 
 public class ChatWindow extends JFrame implements UserInterface {
-
-
-
-    public static void connectServer(){
-
-    }
-
 
     public final static int SCREEN_WIDTH = 800;
     public final static int SCREEN_HEIGHT = 800;
@@ -42,6 +38,17 @@ public class ChatWindow extends JFrame implements UserInterface {
         this.add(sendMessagePanel, BorderLayout.PAGE_END);
     }
 
+    private void configIcon(){
+        //Config icon
+        try{
+            URL icon = this.getClass().getResource("/chat/assets/icon.png");
+            if(icon != null){
+                setIconImage(new ImageIcon(icon).getImage());
+            }
+        }catch (Exception e){
+            System.out.printf("nao funfou");
+        }
+    }
 
 
     public ChatWindow(){
@@ -62,6 +69,9 @@ public class ChatWindow extends JFrame implements UserInterface {
 
         //Seta o botão connect como padrão
         this.getRootPane().setDefaultButton(connectionPanel.getConnectButton());
+
+        //Config Icon
+        configIcon();
     }
 
     @Override
