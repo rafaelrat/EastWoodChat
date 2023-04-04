@@ -9,6 +9,8 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 
 public class ChatPanel extends JTextPane {
 
@@ -21,6 +23,7 @@ public class ChatPanel extends JTextPane {
     private static final Color INTERNAL_NICKNAME_COLOR = Color.blue;
     private static final Color INTERNAL_MESSAGE_COLOR = Color.black;
 
+    private Image backgroundImage;
 
     private void configBorders() {
         this.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -88,9 +91,39 @@ public class ChatPanel extends JTextPane {
         }
     }
 
+    private void configBackgroundImage(){
+        //Config icon
+        try{
+            URL image = this.getClass().getResource("/chat/assets/image.png");
+            if(image != null){
+                backgroundImage = new ImageIcon(image).getImage();
+            }
+        }catch (Exception e){
+            System.out.printf("nao funfou");
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+
+        //draw background image
+        Graphics2D g2d = (Graphics2D) g;
+        int x = (this.getWidth() - backgroundImage.getWidth(null)) / 2;
+        int y = (this.getHeight() - backgroundImage.getHeight(null)) / 2;
+        g2d.drawImage(backgroundImage, x, y, null);
+
+
+
+        super.paintComponent(g);
+
+    }
 
     public ChatPanel() {
+
+        this.setOpaque(false);
         configBorders();
+        configBackgroundImage();
+
 
         this.setEditable(false);
         this.setFont(MESSAGE_FONT);
