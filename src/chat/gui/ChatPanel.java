@@ -94,7 +94,7 @@ public class ChatPanel extends JTextPane {
     private void configBackgroundImage(){
         //Config icon
         try{
-            URL image = this.getClass().getResource("/chat/assets/image.png");
+            URL image = this.getClass().getResource("/chat/assets/image.gif");
             if(image != null){
                 backgroundImage = new ImageIcon(image).getImage();
             }
