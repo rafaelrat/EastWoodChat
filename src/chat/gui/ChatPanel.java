@@ -9,7 +9,6 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 
 public class ChatPanel extends JTextPane {
@@ -24,6 +23,8 @@ public class ChatPanel extends JTextPane {
     private static final Color INTERNAL_MESSAGE_COLOR = Color.black;
 
     private Image backgroundImage;
+    private int backgroundWidth;
+    private int backgroundHeight;
 
     private void configBorders() {
         this.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -39,6 +40,10 @@ public class ChatPanel extends JTextPane {
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+
+        //Desce o scroll
+        var sp = EastwoodChat.chatWindow.getSp();
+        sp.getVerticalScrollBar().setValue(sp.getVerticalScrollBar().getMaximum());
     }
 
     public void addErrorMessage(String message) {
@@ -51,6 +56,10 @@ public class ChatPanel extends JTextPane {
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+
+        //Desce o scroll
+        var sp = EastwoodChat.chatWindow.getSp();
+        sp.getVerticalScrollBar().setValue(sp.getVerticalScrollBar().getMaximum());
     }
 
     public void clearChat() {
@@ -89,6 +98,10 @@ public class ChatPanel extends JTextPane {
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+
+        //Desce o scroll
+        var sp = EastwoodChat.chatWindow.getSp();
+        sp.getVerticalScrollBar().setValue(sp.getVerticalScrollBar().getMaximum());
     }
 
     private void configBackgroundImage(){
@@ -97,6 +110,8 @@ public class ChatPanel extends JTextPane {
             URL image = this.getClass().getResource("/chat/assets/image.gif");
             if(image != null){
                 backgroundImage = new ImageIcon(image).getImage();
+                this.backgroundWidth = backgroundImage.getWidth(null);
+                this.backgroundHeight = backgroundImage.getHeight(null);
             }
         }catch (Exception e){
             System.out.printf("nao funfou");
@@ -105,16 +120,17 @@ public class ChatPanel extends JTextPane {
 
     @Override
     protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
         //draw background image
         Graphics2D g2d = (Graphics2D) g;
-        int x = (this.getWidth() - backgroundImage.getWidth(null)) / 2;
-        int y = (this.getHeight() - backgroundImage.getHeight(null)) / 2;
+        int x = (this.getWidth() - (int) (backgroundWidth * 1.2));
+        int y = (this.getHeight() - (int) (backgroundHeight * 1.2));
+
+//        System.out.println("WIDTH: "+this.getWidth()+ " | HEIGHT: " + this.getHeight());
+//        System.out.println("IMAGE_WIDTH: " + backgroundImage.getWidth(null) + " | IMAGE_HEIGHT: " + backgroundImage.getHeight(null));
         g2d.drawImage(backgroundImage, x, y, null);
 
-
-
-        super.paintComponent(g);
 
     }
 

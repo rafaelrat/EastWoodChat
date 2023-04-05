@@ -7,6 +7,8 @@ import chat.client.ClientSocket;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.net.URL;
 
@@ -19,39 +21,40 @@ public class ChatWindow extends JFrame implements UserInterface {
     private ConnectionPanel connectionPanel;
     private ChatPanel chatPanel;
     private SendMessagePanel sendMessagePanel;
+    private JScrollPane sp;
 
-    private void configPanelsAndLayout(){
+    private void configPanelsAndLayout() {
         //Connection Panel
         connectionPanel = new ConnectionPanel();
-        this.add(connectionPanel,  BorderLayout.PAGE_START);
+        this.add(connectionPanel, BorderLayout.PAGE_START);
 
         //Chat Panel
         chatPanel = new ChatPanel();
         this.add(chatPanel, BorderLayout.CENTER);
 
         //Add scroll for chat
-        JScrollPane sp = new JScrollPane(chatPanel);
+        sp = new JScrollPane(chatPanel);
         this.getContentPane().add(sp);
 
         //Send Message Panel
-        sendMessagePanel= new SendMessagePanel();
+        sendMessagePanel = new SendMessagePanel();
         this.add(sendMessagePanel, BorderLayout.PAGE_END);
     }
 
-    private void configIcon(){
+    private void configIcon() {
         //Config icon
-        try{
+        try {
             URL icon = this.getClass().getResource("/chat/assets/icon.png");
-            if(icon != null){
+            if (icon != null) {
                 setIconImage(new ImageIcon(icon).getImage());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.printf("nao funfou");
         }
     }
 
 
-    public ChatWindow(){
+    public ChatWindow() {
         //Set the window settings
         this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         this.setTitle(title);
@@ -107,5 +110,7 @@ public class ChatWindow extends JFrame implements UserInterface {
         return sendMessagePanel;
     }
 
-
+    public JScrollPane getSp() {
+        return sp;
+    }
 }
