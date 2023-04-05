@@ -17,9 +17,9 @@ public class ChatPanel extends JTextPane {
     private static final Color SYSTEM_MESSAGE_COLOR = Color.orange;
     private static final Color ERROR_MESSAGE_COLOR = Color.red;
 
-    private static final Color EXTERNAL_NICKNAME_COLOR = Color.pink;
+    private static final Color EXTERNAL_NICKNAME_COLOR = new Color(191, 0, 255);
     private static final Color EXTERNAL_MESSAGE_COLOR = Color.black;
-    private static final Color INTERNAL_NICKNAME_COLOR = Color.blue;
+    private static final Color INTERNAL_NICKNAME_COLOR = new Color(34,139,34);
     private static final Color INTERNAL_MESSAGE_COLOR = Color.black;
 
     private Image backgroundImage;
